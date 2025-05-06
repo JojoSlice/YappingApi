@@ -121,6 +121,7 @@ namespace YappingAPI.Services
         public async Task<string> GetUserId(string username)
         {
             var user = await _users.Find(user =>user.Username == username).FirstOrDefaultAsync();
+            Console.WriteLine(user.Id + " i mongo");
             return user.Id;
         }
 

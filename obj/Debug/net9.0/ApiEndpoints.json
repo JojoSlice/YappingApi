@@ -1,6 +1,27 @@
 [
   {
     "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "ChangePic",
+    "RelativePath": "api/user/changePic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
     "Method": "GetUserFromId",
     "RelativePath": "api/user/GetUserFromId",
     "HttpMethod": "GET",

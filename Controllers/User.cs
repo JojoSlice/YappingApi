@@ -22,12 +22,14 @@ namespace YappingAPI.Controllers
 
 
         [HttpGet("GetUserId")]
-        public IActionResult GetUserFromUsername(string username)
+        public async Task<IActionResult> GetUserFromUsername(string username)
         {
+            Console.WriteLine(username);
             if (username != null || username != string.Empty)
             {
-                var user = _db.GetUserId(username);
-                if (user != null) return Ok(new { user.Id });
+                var userid = await _db.GetUserId(username);
+                Console.WriteLine(userid + " i controller");
+                if (userid != null) return Ok(userid);
             }
             return Unauthorized(new {message = "User not found"});
         }
@@ -40,9 +42,25 @@ namespace YappingAPI.Controllers
             {
                 Models.User user = await _db.GetUserFromId(userId);
                 Console.WriteLine(user.Username + " hämtas");
-                if (user != null) return Ok(new { user });
+                if (user != null) return Ok(user);
             }
             return Unauthorized(new { message = "User not authenticated." });
+        }
+
+        [HttpGet("changePic")]
+        public async Task<IActionResult> ChangePic(string id, string path)
+        {
+            Console.WriteLine("changepic");
+            try
+            {
+                await _db.UpdateProfilePic(id, path);
+                Console.WriteLine("bild updaterad");
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest("Error");
+            }
         }
 
 

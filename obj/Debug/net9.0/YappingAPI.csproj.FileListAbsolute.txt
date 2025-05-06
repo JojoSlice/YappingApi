@@ -39,3 +39,4 @@ C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\refint\Yappin
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.pdb
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.genruntimeconfig.cache
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\ref\YappingAPI.dll
+C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.sourcelink.json
