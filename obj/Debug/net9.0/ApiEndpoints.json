@@ -1,0 +1,50 @@
+[
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "GetUserFromId",
+    "RelativePath": "api/user/GetUserFromId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "GetUserFromUsername",
+    "RelativePath": "api/user/GetUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "Login",
+    "RelativePath": "api/user/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "YappingAPI.Controllers.User\u002BLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
