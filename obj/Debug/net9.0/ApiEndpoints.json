@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "YappingAPI.Controllers.Category",
+    "Method": "GetCategory",
+    "RelativePath": "api/categories/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Comment",
+    "Method": "LatestPost",
+    "RelativePath": "api/post/latest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lastCreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "YappingAPI.Controllers.User",
     "Method": "ChangePic",
     "RelativePath": "api/user/changePic",
@@ -14,6 +46,22 @@
       },
       {
         "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "IsEmailTaken",
+    "RelativePath": "api/user/emailTaken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -64,6 +112,38 @@
         "Name": "request",
         "Type": "YappingAPI.Controllers.User\u002BLoginRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "Register",
+    "RelativePath": "api/user/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newUser",
+        "Type": "YappingAPI.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "IsUsernameTaken",
+    "RelativePath": "api/user/usernameTaken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
