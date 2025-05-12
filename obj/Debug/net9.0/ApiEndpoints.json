@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "YappingAPI.Controllers.Category",
+    "Method": "CheckCat",
+    "RelativePath": "api/categories/check",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Category",
     "Method": "GetCategory",
     "RelativePath": "api/categories/get",
     "HttpMethod": "GET",
