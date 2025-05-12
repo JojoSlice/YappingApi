@@ -20,6 +20,21 @@ namespace YappingAPI.Controllers
             return Unauthorized();
         }
 
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromBody] Models.User newUser)
+        {
+            try
+            {
+                await _db.RegisterUser(newUser);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         [HttpGet("GetUserId")]
         public async Task<IActionResult> GetUserFromUsername(string username)
@@ -63,12 +78,24 @@ namespace YappingAPI.Controllers
             }
         }
 
+        [HttpGet("usernameTaken")]
+        public async Task<IActionResult> IsUsernameTaken(string username)
+        {
+            if (await _db.IsUsernameTaken(username)) return Ok();
+            else return BadRequest("Username Taken");
+        }
+
+        [HttpGet("emailTaken")]
+        public async Task<IActionResult> IsEmailTaken(string email)
+        {
+            if (await _db.IsEmailTaken(email)) return Ok();
+            else return BadRequest("Email Taken");
+        }
 
         public class LoginRequest
         {
             public string Username { get; set; }
             public string Password { get; set; }
         }
-
     }
 }
