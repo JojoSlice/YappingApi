@@ -32,9 +32,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Comment",
+    "ContainingType": "YappingAPI.Controllers.Post",
     "Method": "LatestPost",
-    "RelativePath": "api/post/latest",
+    "RelativePath": "api/posts/latest",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -43,6 +43,22 @@
         "Name": "lastCreatedAt",
         "Type": "System.DateTime",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Post",
+    "Method": "CreatePost",
+    "RelativePath": "api/posts/post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "post",
+        "Type": "YappingAPI.Models.Post",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
