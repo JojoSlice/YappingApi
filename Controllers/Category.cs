@@ -12,11 +12,20 @@ namespace YappingAPI.Controllers
         [HttpGet("get")]
         public async Task<IActionResult> GetCategory(string id)
         {
-            var cat = await _dB.GetCategory(id);
+            Console.WriteLine("get cat: id: " + id);
+            var cat = await _dB.GetCategoryById(id);
+
 
             if (cat != null)
+            {
+                Console.WriteLine(cat.Name);
                 return Ok(cat);
-            else return BadRequest("No category found");
+            }
+            else
+            {
+                Console.WriteLine("No category found");
+                return BadRequest("No category found");
+            }
         }
 
         [HttpGet("check")]
@@ -30,6 +39,20 @@ namespace YappingAPI.Controllers
                 await _dB.CreateCategory(newCat);
                     return Ok(newCat);  
             }
+        }
+
+        [HttpGet("allcategories")]
+        public async Task<IActionResult> GetCategoties()
+        {
+            Console.WriteLine("all cattis");
+            var cattis = await _dB.GetCategories();
+            if (cattis != null)
+            {
+                Console.WriteLine(cattis.Count());
+                return Ok(cattis);
+            }
+            else
+                return BadRequest("No Categories found");
         }
     }
 }

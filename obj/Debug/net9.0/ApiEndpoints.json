@@ -32,8 +32,34 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "YappingAPI.Controllers.Comment",
+    "Method": "GetPostComments",
+    "RelativePath": "api/comments/postcomments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "YappingAPI.Controllers.Post",
-    "Method": "LatestPost",
+    "Method": "GetPosts",
+    "RelativePath": "api/posts/getposts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Post",
+    "Method": "LatestPosts",
     "RelativePath": "api/posts/latest",
     "HttpMethod": "GET",
     "IsController": true,

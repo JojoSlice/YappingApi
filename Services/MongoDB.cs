@@ -31,6 +31,10 @@ namespace YappingAPI.Services
         {
             return await _categories.Find(_ => true).ToListAsync();
         }
+        public async Task<Models.Category> GetCategoryById(string id)
+        {
+            return await _categories.Find(cat => cat.Id == id).FirstOrDefaultAsync();
+        }
 
         public async Task<Models.Category?> GetCategory(string name)
         {
@@ -43,31 +47,29 @@ namespace YappingAPI.Services
         {
             await _posts.InsertOneAsync(post);
         }
-        public async Task<List<Models.Post>> GetLatestPosts(DateTime? lastPost)
+        public async Task<List<Models.Post>> GetLatestPosts(DateTime lastPost)
         {
             try
             {
 
-                if (lastPost != null)
-                {
                     var filter = Builders<Post>.Filter.Lt(p => p.CreatedAt, lastPost);
                     return await _posts.Find(filter)
                         .SortByDescending(p => p.CreatedAt)
                         .Limit(10)
                         .ToListAsync();
-                }
-                else
-                {
-                    return await _posts.Find(_ => true)
-                        .SortByDescending(p => p.CreatedAt)
-                        .Limit(10)
-                        .ToListAsync();
-                }
             }
             catch
             {
                 return [];
             }
+        }
+
+        public async Task<List<Models.Post>> GetPosts()
+        {
+             return await _posts.Find(_ => true)
+                        .SortByDescending(p => p.CreatedAt)
+                        .Limit(10)
+                        .ToListAsync();
         }
 
         public async Task<List<Models.Post>> GetPostsInCategory(Models.Category category)
@@ -87,9 +89,9 @@ namespace YappingAPI.Services
             await _comments.InsertOneAsync(comment);
         }
 
-        public async Task<List<Models.Comment>> GetCommentsOnPost(Models.Post post)
+        public async Task<List<Models.Comment>> GetCommentsOnPost(string postid)
         {
-            return await _comments.Find(comment => comment.PostId == post.Id).ToListAsync();
+            return await _comments.Find(comment => comment.PostId == postid).ToListAsync();
         }
 
         public async Task<List<Models.Comment>> GetUserComments(Models.User user)

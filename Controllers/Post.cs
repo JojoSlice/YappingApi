@@ -9,12 +9,23 @@ namespace YappingAPI.Controllers
         private readonly Services.MongoDB _db = mongoDb;
 
         [HttpGet("latest")]
-        public async Task<IActionResult> LatestPost(DateTime lastCreatedAt)
+        public async Task<IActionResult> LatestPosts(DateTime lastCreatedAt)
         {
-            var post = await _db.GetLatestPosts(lastCreatedAt);
-            if (post != null)
-                return Ok(post);
+            var posts = await _db.GetLatestPosts(lastCreatedAt);
+            if (posts != null)
+                return Ok(posts);
             else return BadRequest("No posts found");
+        }
+
+        [HttpGet("getposts")]
+        public async Task<IActionResult> GetPosts()
+        {
+            var posts = await _db.GetPosts();
+            if (posts != null)
+                return Ok(posts);
+            else return BadRequest("No posts found");
+
+
         }
 
         [HttpPost("post")]

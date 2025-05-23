@@ -9,7 +9,6 @@ namespace YappingAPI.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [JsonPropertyName("id")]
-
         public string Id { get; set; } = string.Empty;
         [JsonPropertyName("userid")]
         public string UserId { get; set; }
