@@ -22,6 +22,8 @@ namespace YappingAPI.Models
         public string? ImgPath { get; set; }
         [JsonPropertyName("createdat")]
         public DateTime CreatedAt { get; set; }
+        [JsonPropertyName("like")]
+        public int Like { get; set; }
 
         public Post() { }
 

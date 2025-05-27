@@ -1,6 +1,16 @@
 [
   {
     "ContainingType": "YappingAPI.Controllers.Category",
+    "Method": "GetCategoties",
+    "RelativePath": "api/categories/allcategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Category",
     "Method": "CheckCat",
     "RelativePath": "api/categories/check",
     "HttpMethod": "GET",
@@ -35,6 +45,38 @@
     "ContainingType": "YappingAPI.Controllers.Comment",
     "Method": "GetPostComments",
     "RelativePath": "api/comments/postcomments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Post",
+    "Method": "LikePost",
+    "RelativePath": "api/posts/{postid}like",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Post",
+    "Method": "GetPost",
+    "RelativePath": "api/posts/getpost",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

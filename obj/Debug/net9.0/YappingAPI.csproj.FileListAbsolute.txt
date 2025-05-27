@@ -26,12 +26,6 @@ C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\scopedcss\bun
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets\msbuild.YappingAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets\msbuild.YappingAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets\msbuild.build.YappingAPI.props
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.YappingAPI.props
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.YappingAPI.props
-C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.pack.json
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.csproj.Up2Date
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.dll
@@ -40,3 +34,4 @@ C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.pd
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.genruntimeconfig.cache
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\ref\YappingAPI.dll
 C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\YappingAPI.sourcelink.json
+C:\Users\Johan\source\repos\YappingAPI\YappingAPI\obj\Debug\net9.0\staticwebassets.build.json.cache

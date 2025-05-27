@@ -47,6 +47,17 @@ namespace YappingAPI.Services
         {
             await _posts.InsertOneAsync(post);
         }
+        public async Task AddPostLike(string postid)
+        {
+            var filter = Builders<Models.Post>.Filter.Eq(post => post.Id, postid);
+            var update = Builders<Models.Post>.Update.Inc(post => post.Like, 1);
+
+            await _posts.UpdateOneAsync(filter, update);
+        }
+        public async Task<Models.Post> GetPost(string postid)
+        {
+            return await _posts.Find(post => post.Id == postid).FirstOrDefaultAsync();
+        }
         public async Task<List<Models.Post>> GetLatestPosts(DateTime lastPost)
         {
             try
