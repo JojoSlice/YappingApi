@@ -9,6 +9,7 @@ namespace YappingAPI.Services
         private readonly IMongoCollection<Models.Post> _posts;
         private readonly IMongoCollection<Models.Category> _categories;
         private readonly IMongoCollection<Models.Comment> _comments;
+        private readonly IMongoCollection<Models.Likes> _likes;
         public MongoDB(IConfiguration config)
         {
             var settings = MongoClientSettings.FromConnectionString(config["MongoDb:ConnectionString"]);
@@ -19,6 +20,35 @@ namespace YappingAPI.Services
             _posts = db.GetCollection<Models.Post>("Posts");
             _categories = db.GetCollection<Models.Category>("Categories");
             _comments = db.GetCollection<Models.Comment>("Comments");
+            _likes = db.GetCollection<Models.Likes>("Likes");
+        }
+        //--------------------Likes Controller-----------------------------||
+
+        public async Task<List<Models.Likes>> GetLikes(string objid)
+        {
+            return await _likes.Find(like => like.ObjId == objid && like.IsLiked == true).ToListAsync();
+        }
+        public async Task Like(string objid, string userid)
+        {
+            var obj = _likes.Find(obj => obj.ObjId == objid).FirstOrDefault();
+
+            if (obj == null)
+            {
+                var like = new Models.Likes() { ObjId = objid, UserId = userid, IsLiked = true};
+                await _likes.InsertOneAsync(like);
+            }
+            else
+            {
+                var filter = Builders<Models.Likes>.Filter.Eq(obj => obj.ObjId, objid);
+
+                var isLiked = false;
+                if (!obj.IsLiked) 
+                    isLiked = true;
+
+                var update = Builders<Models.Likes>.Update.Inc(obj => obj.IsLiked, isLiked);
+
+                await _likes.UpdateOneAsync(filter, update);
+            }
         }
 
         //------------------ Category Controller --------------------------||
