@@ -58,6 +58,49 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "YappingAPI.Controllers.Like",
+    "Method": "GetLikes",
+    "RelativePath": "api/likes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "objid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Like",
+    "Method": "LikeObj",
+    "RelativePath": "api/likes/{objid}/{userid}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "objid",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "YappingAPI.Controllers.Post",
     "Method": "LikePost",
     "RelativePath": "api/posts/{postid}like",

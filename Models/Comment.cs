@@ -4,19 +4,19 @@ using System.Text.Json.Serialization;
 
 namespace YappingAPI.Models
 {
-    public class Comment(User user, Post post, string content)
+    public class Comment()
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [JsonPropertyName("id")]
-        public string Id { get; set; } = string.Empty;
+        public string Id { get; set; }
         [JsonPropertyName("userid")]
-        public string UserId { get; set; } = user.Id;
+        public string UserId { get; set; }
         [JsonPropertyName("postid")]
-        public string PostId { get; set; } = post.Id;
+        public string PostId { get; set; }
         [JsonPropertyName("text")]
-        public string Text { get; set; } = content;
+        public string Text { get; set; }
         [JsonPropertyName("createdat")]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
     }
 }

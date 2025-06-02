@@ -45,7 +45,7 @@ namespace YappingAPI.Services
                 if (!obj.IsLiked) 
                     isLiked = true;
 
-                var update = Builders<Models.Likes>.Update.Inc(obj => obj.IsLiked, isLiked);
+                var update = Builders<Models.Likes>.Update.Set(obj => obj.IsLiked, isLiked);
 
                 await _likes.UpdateOneAsync(filter, update);
             }

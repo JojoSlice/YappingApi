@@ -16,5 +16,20 @@ namespace YappingAPI.Controllers
                 return Ok(comments);
             else return BadRequest("No Comments found");
         }
+
+        [HttpPost("new")]
+        public async Task<IActionResult> PostNewComment([FromBody]Models.Comment comment)
+        {
+            try
+            {
+                await _db.CreateComment(comment);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
