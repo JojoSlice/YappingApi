@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "YappingAPI.Controllers.Comment",
+    "Method": "PostNewComment",
+    "RelativePath": "api/comments/new",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comment",
+        "Type": "YappingAPI.Models.Comment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.Comment",
     "Method": "GetPostComments",
     "RelativePath": "api/comments/postcomments",
     "HttpMethod": "GET",
@@ -271,6 +287,22 @@
         "Name": "newUser",
         "Type": "YappingAPI.Models.User",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.User",
+    "Method": "GetUsernameById",
+    "RelativePath": "api/user/Username",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace YappingAPI.Controllers
 {
@@ -35,6 +34,21 @@ namespace YappingAPI.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpGet("Userinfo")]
+        public async Task<IActionResult> GetUsernameById(string id)
+        {
+            Console.WriteLine("Get Userinfo");
+            var user = await _db.GetUserFromId(id);
+            if (user != null)
+            {
+                return Ok(new { username = user.Username, profileImg = user.ProfileImg });
+            }
+            else
+                return BadRequest("No user found");
+        }
+
+        
 
         [HttpGet("GetUserId")]
         public async Task<IActionResult> GetUserFromUsername(string username)
@@ -56,7 +70,6 @@ namespace YappingAPI.Controllers
             if (userId != string.Empty)
             {
                 Models.User user = await _db.GetUserFromId(userId);
-                Console.WriteLine(user.Username + " hämtas");
                 if (user != null) return Ok(user);
             }
             return Unauthorized(new { message = "User not authenticated." });
