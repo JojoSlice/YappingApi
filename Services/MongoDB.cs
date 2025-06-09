@@ -10,6 +10,7 @@ namespace YappingAPI.Services
         private readonly IMongoCollection<Models.Category> _categories;
         private readonly IMongoCollection<Models.Comment> _comments;
         private readonly IMongoCollection<Models.Likes> _likes;
+        private readonly IMongoCollection<Models.Message> _Messages;
         public MongoDB(IConfiguration config)
         {
             var settings = MongoClientSettings.FromConnectionString(config["MongoDb:ConnectionString"]);
@@ -21,7 +22,21 @@ namespace YappingAPI.Services
             _categories = db.GetCollection<Models.Category>("Categories");
             _comments = db.GetCollection<Models.Comment>("Comments");
             _likes = db.GetCollection<Models.Likes>("Likes");
+            _Messages = db.GetCollection<Models.Message>("Message");
         }
+        //---------------------------Messages Controller-------------------||
+
+        public async Task<List<Models.Message>> GetResivedMessages(string id)
+        {
+            return await _Messages.Find(M => M.ResiveId == id).ToListAsync();
+        }
+
+        public async Task SendMessage(Models.Message message)
+        {
+            await _Messages.InsertOneAsync(message);
+        }
+
+
         //--------------------Likes Controller-----------------------------||
 
         public async Task<List<Models.Likes>> GetLikes(string objid)

@@ -294,7 +294,7 @@
   {
     "ContainingType": "YappingAPI.Controllers.User",
     "Method": "GetUsernameById",
-    "RelativePath": "api/user/Username",
+    "RelativePath": "api/user/Userinfo",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

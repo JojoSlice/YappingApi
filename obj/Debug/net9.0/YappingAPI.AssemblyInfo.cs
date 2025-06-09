@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YappingAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf4d7973503529f0e915083d4142011ba45fa68a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f35b77b96d77b032221d4fa353f52ada1b6b4c18")]
 [assembly: System.Reflection.AssemblyProductAttribute("YappingAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YappingAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

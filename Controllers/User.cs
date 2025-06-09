@@ -42,7 +42,7 @@ namespace YappingAPI.Controllers
             var user = await _db.GetUserFromId(id);
             if (user != null)
             {
-                return Ok(new { username = user.Username, profileImg = user.ProfileImg });
+                return Ok(new { userid = user.Id, username = user.Username, profileImg = user.ProfileImg });
             }
             else
                 return BadRequest("No user found");
