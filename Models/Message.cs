@@ -9,7 +9,7 @@ namespace YappingAPI.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [JsonPropertyName("id")]
-        public string Id { get; set; } = string.Empty;
+        public string Id { get; set; }
 
         [JsonPropertyName("resiveid")]
         public string ResiveId { get; set; }
@@ -21,6 +21,9 @@ namespace YappingAPI.Models
         public string Text { get; set; }
 
         [JsonPropertyName("createdat")]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
+        
+        [JsonPropertyName("isread")]
+        public bool IsRead { get; set; }
     }
 }

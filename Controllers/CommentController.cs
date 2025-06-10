@@ -4,7 +4,7 @@ namespace YappingAPI.Controllers
 {
     [ApiController]
     [Route("api/comments")]
-    public class Comment(Services.MongoDB mongo) : Controller
+    public class CommentController(Services.MongoDB mongo) : Controller
     {
         private readonly Services.MongoDB _db = mongo;
 

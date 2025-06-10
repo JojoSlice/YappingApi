@@ -4,7 +4,7 @@ namespace YappingAPI.Controllers
 {
     [ApiController]
     [Route("api/posts")]
-    public class Post(Services.MongoDB mongoDb) : ControllerBase
+    public class PostController(Services.MongoDB mongoDb) : ControllerBase
     {
         private readonly Services.MongoDB _db = mongoDb;
 

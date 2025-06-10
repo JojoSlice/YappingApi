@@ -5,7 +5,7 @@ namespace YappingAPI.Controllers
 {
     [ApiController]
     [Route("api/user")]
-    public class User(Services.MongoDB mongoDb) : ControllerBase
+    public class UserController(Services.MongoDB mongoDb) : ControllerBase
     {
         private readonly Services.MongoDB _db = mongoDb;
 
@@ -36,7 +36,7 @@ namespace YappingAPI.Controllers
 
         [AllowAnonymous]
         [HttpGet("Userinfo")]
-        public async Task<IActionResult> GetUsernameById(string id)
+        public async Task<IActionResult> GetUserInfoById(string id)
         {
             Console.WriteLine("Get Userinfo");
             var user = await _db.GetUserFromId(id);
@@ -48,6 +48,27 @@ namespace YappingAPI.Controllers
                 return BadRequest("No user found");
         }
 
+        [AllowAnonymous]
+        [HttpGet("AllUserinfo")]
+        public async Task<IActionResult> GetAllUserInfo()
+        {
+            Console.WriteLine("Get Userinfo");
+            var userInfos = new List<Models.UserInfo>();
+            var users = await _db.GetUsers();
+            foreach (var user in users)
+            {
+                if (user != null)
+                {
+                    var userInfo = new Models.UserInfo { UserId = user.Id, Username = user.Username, ProfileImg = user.ProfileImg };
+                    userInfos.Add(userInfo);
+                }
+            }
+            if (userInfos.Count > 0)
+            {
+                return Ok(userInfos);
+            }
+            else { return NotFound(); }
+        }
         
 
         [HttpGet("GetUserId")]

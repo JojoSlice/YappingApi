@@ -4,7 +4,7 @@ namespace YappingAPI.Controllers
 {
     [ApiController]
     [Route("api/categories")]
-    public class Category(Services.MongoDB mongoDB) : ControllerBase
+    public class CategoryController(Services.MongoDB mongoDB) : ControllerBase
     {
         private readonly Services.MongoDB _dB = mongoDB;
 

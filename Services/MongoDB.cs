@@ -31,11 +31,28 @@ namespace YappingAPI.Services
             return await _Messages.Find(M => M.ResiveId == id).ToListAsync();
         }
 
+        public async Task<bool> AnyUnRead(string id)
+        {
+            bool hasUnreadMessages = await _Messages
+                .Find(m => m.ResiveId == id && !m.IsRead)
+                .AnyAsync(); 
+            return hasUnreadMessages;
+        }
+
         public async Task SendMessage(Models.Message message)
         {
             await _Messages.InsertOneAsync(message);
         }
+        
+        public async Task MarkAsRead(string id)
+        {
+            var filter = Builders<Models.Message>.Filter.Eq(M => M.ResiveId, id) &
+                         Builders<Models.Message>.Filter.Eq(M => M.IsRead, false);
 
+            var update = Builders<Models.Message>.Update.Set(M => M.IsRead, true);
+
+            await _Messages.UpdateManyAsync(filter, update);
+        }
 
         //--------------------Likes Controller-----------------------------||
 
@@ -181,6 +198,11 @@ namespace YappingAPI.Services
             var user = await _users.Find(user =>user.Username == username).FirstOrDefaultAsync();
             Console.WriteLine(user.Id + " i mongo");
             return user.Id;
+        }
+
+        public async Task<List<Models.User>> GetUsers()
+        {
+            return await _users.Find(user => true).ToListAsync();
         }
 
         public async Task<Models.User> GetUserFromId(string id)

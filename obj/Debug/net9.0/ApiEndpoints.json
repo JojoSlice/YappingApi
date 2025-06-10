@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "YappingAPI.Controllers.Category",
+    "ContainingType": "YappingAPI.Controllers.CategoryController",
     "Method": "GetCategoties",
     "RelativePath": "api/categories/allcategories",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Category",
+    "ContainingType": "YappingAPI.Controllers.CategoryController",
     "Method": "CheckCat",
     "RelativePath": "api/categories/check",
     "HttpMethod": "GET",
@@ -26,7 +26,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Category",
+    "ContainingType": "YappingAPI.Controllers.CategoryController",
     "Method": "GetCategory",
     "RelativePath": "api/categories/get",
     "HttpMethod": "GET",
@@ -42,7 +42,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Comment",
+    "ContainingType": "YappingAPI.Controllers.CommentController",
     "Method": "PostNewComment",
     "RelativePath": "api/comments/new",
     "HttpMethod": "POST",
@@ -58,7 +58,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Comment",
+    "ContainingType": "YappingAPI.Controllers.CommentController",
     "Method": "GetPostComments",
     "RelativePath": "api/comments/postcomments",
     "HttpMethod": "GET",
@@ -74,7 +74,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Like",
+    "ContainingType": "YappingAPI.Controllers.LikeController",
     "Method": "GetLikes",
     "RelativePath": "api/likes",
     "HttpMethod": "GET",
@@ -90,7 +90,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Like",
+    "ContainingType": "YappingAPI.Controllers.LikeController",
     "Method": "LikeObj",
     "RelativePath": "api/likes/{objid}/{userid}",
     "HttpMethod": "POST",
@@ -117,7 +117,71 @@
     ]
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Post",
+    "ContainingType": "YappingAPI.Controllers.MessageController",
+    "Method": "ReciveMessages",
+    "RelativePath": "api/message",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.MessageController",
+    "Method": "MarkAsRead",
+    "RelativePath": "api/message",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.MessageController",
+    "Method": "SendMessage",
+    "RelativePath": "api/message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "YappingAPI.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.MessageController",
+    "Method": "GetUnRead",
+    "RelativePath": "api/message/unread",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.PostController",
     "Method": "LikePost",
     "RelativePath": "api/posts/{postid}like",
     "HttpMethod": "POST",
@@ -133,7 +197,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Post",
+    "ContainingType": "YappingAPI.Controllers.PostController",
     "Method": "GetPost",
     "RelativePath": "api/posts/getpost",
     "HttpMethod": "GET",
@@ -149,7 +213,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Post",
+    "ContainingType": "YappingAPI.Controllers.PostController",
     "Method": "GetPosts",
     "RelativePath": "api/posts/getposts",
     "HttpMethod": "GET",
@@ -159,7 +223,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Post",
+    "ContainingType": "YappingAPI.Controllers.PostController",
     "Method": "LatestPosts",
     "RelativePath": "api/posts/latest",
     "HttpMethod": "GET",
@@ -175,7 +239,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.Post",
+    "ContainingType": "YappingAPI.Controllers.PostController",
     "Method": "CreatePost",
     "RelativePath": "api/posts/post",
     "HttpMethod": "POST",
@@ -191,7 +255,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
+    "Method": "GetAllUserInfo",
+    "RelativePath": "api/user/AllUserinfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "ChangePic",
     "RelativePath": "api/user/changePic",
     "HttpMethod": "GET",
@@ -212,7 +286,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "IsEmailTaken",
     "RelativePath": "api/user/emailTaken",
     "HttpMethod": "GET",
@@ -228,7 +302,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "GetUserFromId",
     "RelativePath": "api/user/GetUserFromId",
     "HttpMethod": "GET",
@@ -244,7 +318,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "GetUserFromUsername",
     "RelativePath": "api/user/GetUserId",
     "HttpMethod": "GET",
@@ -260,7 +334,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/user/Login",
     "HttpMethod": "POST",
@@ -269,14 +343,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "YappingAPI.Controllers.User\u002BLoginRequest",
+        "Type": "YappingAPI.Controllers.UserController\u002BLoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "Register",
     "RelativePath": "api/user/Register",
     "HttpMethod": "POST",
@@ -292,8 +366,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
-    "Method": "GetUsernameById",
+    "ContainingType": "YappingAPI.Controllers.UserController",
+    "Method": "GetUserInfoById",
     "RelativePath": "api/user/Userinfo",
     "HttpMethod": "GET",
     "IsController": true,
@@ -308,7 +382,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "YappingAPI.Controllers.User",
+    "ContainingType": "YappingAPI.Controllers.UserController",
     "Method": "IsUsernameTaken",
     "RelativePath": "api/user/usernameTaken",
     "HttpMethod": "GET",

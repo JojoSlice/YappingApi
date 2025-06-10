@@ -5,7 +5,7 @@ namespace YappingAPI.Controllers
 {
     [Route("api/likes")]
     [ApiController]
-    public class Like(Services.MongoDB db) : ControllerBase
+    public class LikeController(Services.MongoDB db) : ControllerBase
     {
         private readonly Services.MongoDB _db = db;
         
