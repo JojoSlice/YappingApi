@@ -18,5 +18,7 @@ namespace YappingAPI.Models
         public string Password { get; set; } = string.Empty;
         [JsonPropertyName("profileimg")]
         public string ProfileImg { get; set; } = string.Empty;
+        [JsonPropertyName("admin")]
+        public bool Admin { get; set; } = false;
     }
 }

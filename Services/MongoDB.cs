@@ -11,6 +11,7 @@ namespace YappingAPI.Services
         private readonly IMongoCollection<Models.Comment> _comments;
         private readonly IMongoCollection<Models.Likes> _likes;
         private readonly IMongoCollection<Models.Message> _Messages;
+        private readonly IMongoCollection<Models.Report> _reports;
         public MongoDB(IConfiguration config)
         {
             var settings = MongoClientSettings.FromConnectionString(config["MongoDb:ConnectionString"]);
@@ -23,7 +24,33 @@ namespace YappingAPI.Services
             _comments = db.GetCollection<Models.Comment>("Comments");
             _likes = db.GetCollection<Models.Likes>("Likes");
             _Messages = db.GetCollection<Models.Message>("Message");
+            _reports = db.GetCollection<Models.Report>("Report");
         }
+        //----------------------------Report Controller----------------------||
+
+        public async Task CreateReport(Models.Report report)
+        {
+            await _reports.InsertOneAsync(report);
+        }
+        public async Task MarkReportAsRead(string id)
+        {
+            var filter = Builders<Models.Report>.Filter.Eq(R => R.Id, id); 
+
+            var update = Builders<Models.Report>.Update.Set(R => R.IsRead, true);
+
+            await _reports.UpdateOneAsync(filter, update);
+        }
+
+        public async Task<List<Models.Report>> GetAllUnreadReports()
+        {
+            return await _reports.Find(R => R.IsRead == false).ToListAsync();
+        }
+
+        public async Task<List<Models.Report>> GetReports()
+        {
+            return await _reports.Find(_ => true).ToListAsync();
+        }
+
         //---------------------------Messages Controller-------------------||
 
         public async Task<List<Models.Message>> GetResivedMessages(string id)
@@ -105,6 +132,11 @@ namespace YappingAPI.Services
 
         //---------------- Post Controller --------------------------------||
 
+        public async Task DeletePost(string id)
+        {
+            await _posts.DeleteOneAsync(P => P.Id == id);
+        }
+
         public async Task CreatePost(Models.Post post)
         {
             await _posts.InsertOneAsync(post);
@@ -157,11 +189,19 @@ namespace YappingAPI.Services
 
         //------------- Comment Controller --------------------------------||
 
+        public async Task DeleteComment(string id)
+        {
+            await _comments.DeleteOneAsync(C => C.Id == id);
+        }
         public async Task CreateComment(Models.Comment comment)
         {
             await _comments.InsertOneAsync(comment);
         }
 
+        public async Task<Models.Comment> GetComment(string id)
+        {
+            return await _comments.Find(C => C.Id == id).FirstOrDefaultAsync();
+        }
         public async Task<List<Models.Comment>> GetCommentsOnPost(string postid)
         {
             return await _comments.Find(comment => comment.PostId == postid).ToListAsync();

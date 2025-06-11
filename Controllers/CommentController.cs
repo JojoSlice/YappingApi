@@ -8,6 +8,17 @@ namespace YappingAPI.Controllers
     {
         private readonly Services.MongoDB _db = mongo;
 
+
+        [HttpGet("comment")]
+        public async Task<IActionResult> GetComment(string id)
+        {
+            var comment = await _db.GetComment(id);
+            if(comment != null) 
+                return Ok(comment);
+            else
+                return NotFound();
+        }
+
         [HttpGet("postcomments")]
         public async Task<IActionResult> GetPostComments(string postid)
         {
