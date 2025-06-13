@@ -44,12 +44,13 @@ namespace YappingAPI.Controllers
                 return NotFound();
         }
         [HttpDelete("post")]
-        public async Task<IActionResult> DeletePost(string id)
+        public async Task<IActionResult> DeletePost([FromBody] DeletePostRequest request)
         {
             Console.WriteLine("DeletePost");
             try
             {
-                await _dB.DeletePost(id);
+                await _dB.DeletePost(request.PostId);
+                await _dB.DeleteRaport(request.RaportId);
                 return Ok();
             }
             catch (Exception ex)
@@ -58,13 +59,22 @@ namespace YappingAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        public class DeletePostRequest
+        {
+            public string PostId { get; set; }
+            public string RaportId { get; set; }
+        }
+
+
         [HttpDelete("comment")]
-        public async Task<IActionResult> DeleteComment(string id)
+        public async Task<IActionResult> DeleteComment([FromBody] DeleteCommentRequest request)
         {
             Console.WriteLine("DeleteComment");
             try
             {
-                await _dB.DeleteComment(id);
+                await _dB.DeleteComment(request.CommentId);
+                await _dB.DeleteRaport(request.RaportId);
                 return Ok();
             }
             catch (Exception ex)
@@ -73,13 +83,20 @@ namespace YappingAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        public class DeleteCommentRequest
+        {
+            public string CommentId { get; set; }
+            public string RaportId { get; set; }
+        }
+
+
         [HttpPut]
-        public async Task<IActionResult> MarkReportAsRead(string id)
+        public async Task<IActionResult> MarkReportAsRead([FromBody] MarkReportRequest request)
         {
             Console.WriteLine("MarkReportAsRead");
             try
             {
-                await _dB.MarkReportAsRead(id);
+                await _dB.MarkReportAsRead(request.Id);
                 return Ok();
             }
             catch (Exception ex)
@@ -88,6 +105,10 @@ namespace YappingAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
+        public class MarkReportRequest
+        {
+            public string Id { get; set; }
+        }
     }
 }

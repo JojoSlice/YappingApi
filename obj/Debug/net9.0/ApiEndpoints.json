@@ -42,6 +42,128 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "GetUserChats",
+    "RelativePath": "api/chat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "AddUserToChat",
+    "RelativePath": "api/chat/{chatId}/add/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chatId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "RemoveUserFromChat",
+    "RelativePath": "api/chat/{chatId}/remove/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chatId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "CreateGroupChat",
+    "RelativePath": "api/chat/group",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupChat",
+        "Type": "YappingAPI.Models.GroupChat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "CreateChatMessage",
+    "RelativePath": "api/chat/message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "YappingAPI.Models.ChatMessages",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ChatController",
+    "Method": "GetChatMessages",
+    "RelativePath": "api/chat/messages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chatId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.CommentController",
+    "Method": "GetComment",
+    "RelativePath": "api/comments/comment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "YappingAPI.Controllers.CommentController",
     "Method": "PostNewComment",
     "RelativePath": "api/comments/new",
@@ -249,6 +371,90 @@
       {
         "Name": "post",
         "Type": "YappingAPI.Models.Post",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "CreateRaport",
+    "RelativePath": "api/report",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "report",
+        "Type": "YappingAPI.Models.Report",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "GetUnRead",
+    "RelativePath": "api/report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "MarkReportAsRead",
+    "RelativePath": "api/report",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "YappingAPI.Controllers.ReportController\u002BMarkReportRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "GetAll",
+    "RelativePath": "api/report/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "DeleteComment",
+    "RelativePath": "api/report/comment",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "YappingAPI.Controllers.ReportController\u002BDeleteCommentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YappingAPI.Controllers.ReportController",
+    "Method": "DeletePost",
+    "RelativePath": "api/report/post",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "YappingAPI.Controllers.ReportController\u002BDeletePostRequest",
         "IsRequired": true
       }
     ],

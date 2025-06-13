@@ -12,6 +12,8 @@ namespace YappingAPI.Services
         private readonly IMongoCollection<Models.Likes> _likes;
         private readonly IMongoCollection<Models.Message> _Messages;
         private readonly IMongoCollection<Models.Report> _reports;
+        private readonly IMongoCollection<Models.ChatMessages> _chatMessages;
+        private readonly IMongoCollection<Models.GroupChat> _groupChat;
         public MongoDB(IConfiguration config)
         {
             var settings = MongoClientSettings.FromConnectionString(config["MongoDb:ConnectionString"]);
@@ -25,8 +27,54 @@ namespace YappingAPI.Services
             _likes = db.GetCollection<Models.Likes>("Likes");
             _Messages = db.GetCollection<Models.Message>("Message");
             _reports = db.GetCollection<Models.Report>("Report");
+            _groupChat = db.GetCollection<Models.GroupChat>("GroupChat");
+            _chatMessages = db.GetCollection<Models.ChatMessages>("ChatMessage");
         }
+        //-------------------------Chat Controller------------------------------||
+
+        public async Task CreateChatMessage(Models.ChatMessages chatMessage)
+        {
+            await _chatMessages.InsertOneAsync(chatMessage);
+        }
+
+        public async Task<List<Models.ChatMessages>> GetChatMessages(string chatId)
+        {
+            return await _chatMessages.Find(m => m.ChatId == chatId).ToListAsync();
+        }
+        public async Task CreateGroupChat(Models.GroupChat chat)
+        {
+            await _groupChat.InsertOneAsync(chat);
+        }
+        public async Task<List<Models.GroupChat>> GetUsersChats(string userId)
+        {
+            return await _groupChat.Find(c => c.UserIds.Contains(userId)).ToListAsync();
+        }
+        public async Task AddUserToChat(string userId, string chatId)
+        {
+            var chat = await _groupChat.Find(c => c.Id == chatId).FirstOrDefaultAsync();
+
+            if (chat != null)
+            {
+                chat.UserIds.Add(userId);
+                await _groupChat.ReplaceOneAsync(c => c.Id == chat.Id, chat);
+            }
+        }
+        public async Task RemoveUserFromChat(string userId, string chatId)
+        {
+            var chat = await _groupChat.Find(c => c.Id == chatId).FirstOrDefaultAsync();
+            
+            if(chat != null)
+            {
+                chat.UserIds.Remove(userId);
+                await _groupChat.ReplaceOneAsync(c => c.Id == chatId, chat);
+            }
+        }
+
         //----------------------------Report Controller----------------------||
+        public async Task DeleteRaport(string id)
+        {
+            await _reports.DeleteOneAsync(r => r.Id == id);
+        }
 
         public async Task CreateReport(Models.Report report)
         {
